@@ -153,10 +153,11 @@ class ViewController: UIViewController {
     
     private func dismissCurrentLoactionAddingView() {
         self.customMapMarker.isHidden = true
-        UIView.animate(withDuration: 0.6, animations: {
-            self.mapView.frame = self.mapViewFrameForStatus(status: 1)
-            self.tableView.frame = self.tableViewFrameForStatus(status: 1)
-            self.currentLoactionAddingView.frame = self.currentLoactionAddingViewFrameForStatus(status: 1)
+        UIView.animate(withDuration: 0.6, animations: { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.mapView.frame = strongSelf.mapViewFrameForStatus(status: 1)
+            strongSelf.tableView.frame = strongSelf.tableViewFrameForStatus(status: 1)
+            strongSelf.currentLoactionAddingView.frame = strongSelf.currentLoactionAddingViewFrameForStatus(status: 1)
         }) { (isFinish) in
         }
     }
@@ -189,14 +190,16 @@ class ViewController: UIViewController {
     }
     
     func showCurrentLoactionAddingView() {
-        UIView.animate(withDuration: 0.6, animations: {
-            self.mapView.frame = self.mapViewFrameForStatus(status: 0)
-            self.tableView.frame = self.tableViewFrameForStatus(status: 0)
-            self.currentLoactionAddingView.frame = self.currentLoactionAddingViewFrameForStatus(status: 0)
-            self.customMapMarker.center = CGPoint.init(x: self.mapView.center.x, y: self.mapView.center.y-self.customMapMarker.frame.height/2)
-        }) { (isFinish) in
+        UIView.animate(withDuration: 0.6, animations: { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.mapView.frame = strongSelf.mapViewFrameForStatus(status: 0)
+            strongSelf.tableView.frame = strongSelf.tableViewFrameForStatus(status: 0)
+            strongSelf.currentLoactionAddingView.frame = strongSelf.currentLoactionAddingViewFrameForStatus(status: 0)
+            strongSelf.customMapMarker.center = CGPoint.init(x: strongSelf.mapView.center.x, y: strongSelf.mapView.center.y-strongSelf.customMapMarker.frame.height/2)
+        }) { [weak self] (isFinish) in
+            guard let strongSelf = self else { return }
             if isFinish {
-                self.customMapMarker.isHidden = false
+                strongSelf.customMapMarker.isHidden = false
             }
         }
     }
@@ -285,7 +288,8 @@ extension ViewController: TSPDelegate
             
             let url = NSURL(string: "\("https://maps.googleapis.com/maps/api/directions/json")?origin=\(originLatitude),\(originLongitude)&destination=\(destinationLatitude!),\(destinationLongitude!)&sensor=true&key=\(kDirectionAPIKeyWithIPLimit)")
             
-            let task = URLSession.shared.dataTask(with: url! as URL) { (data, response, error) -> Void in
+            let task = URLSession.shared.dataTask(with: url! as URL) { [weak self] (data, response, error) -> Void in
+                guard let strongSelf = self else { return }
                 do {
                     guard let data = data else { return }
                     
@@ -301,14 +305,14 @@ extension ViewController: TSPDelegate
                             let singleLine = GMSPolyline.init(path: path)
                             singleLine.strokeWidth = 4.0
                             singleLine.strokeColor = UIColor.random
-                            singleLine.map = self.mapView
+                            singleLine.map = strongSelf.mapView
                         }
                     } else {
                         guard let error_message = responseDic["error_message"] else {
-                            self.showAlert("ERROR", "No detailed error message")
+                            strongSelf.showAlert("ERROR", "No detailed error message")
                             return
                         }
-                        self.showAlert("ERROR", error_message as! String)
+                        strongSelf.showAlert("ERROR", error_message as! String)
                     }
                     
                 } catch {
