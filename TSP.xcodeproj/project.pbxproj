@@ -15,6 +15,11 @@
 		236FD18F211BC5C100200825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 236FD18D211BC5C100200825 /* LaunchScreen.storyboard */; };
 		236FD19A211BC5C100200825 /* TSPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236FD199211BC5C100200825 /* TSPTests.swift */; };
 		236FD1A5211BC5C100200825 /* TSPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236FD1A4211BC5C100200825 /* TSPUITests.swift */; };
+		23958150213A97C0009290FE /* ViewController+GMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395814F213A97C0009290FE /* ViewController+GMS.swift */; };
+		23958153213A986E009290FE /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23958152213A986E009290FE /* UIColor+.swift */; };
+		23958155213A987A009290FE /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23958154213A987A009290FE /* UIViewController+.swift */; };
+		23958157213A9A30009290FE /* ViewController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23958156213A9A30009290FE /* ViewController+UITableView.swift */; };
+		23958159213A9CD5009290FE /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23958158213A9CD5009290FE /* UIButton+.swift */; };
 		23A1888D211D601D00D9345A /* SelectedPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A1888B211D601D00D9345A /* SelectedPlaceCell.swift */; };
 		23A1888E211D601D00D9345A /* SelectedPlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A1888C211D601D00D9345A /* SelectedPlaceCell.xib */; };
 		23A18890211D61E100D9345A /* SelectedPlaceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A1888F211D61E100D9345A /* SelectedPlaceHeaderView.swift */; };
@@ -63,6 +68,11 @@
 		236FD1A0211BC5C100200825 /* TSPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		236FD1A4211BC5C100200825 /* TSPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSPUITests.swift; sourceTree = "<group>"; };
 		236FD1A6211BC5C100200825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2395814F213A97C0009290FE /* ViewController+GMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+GMS.swift"; sourceTree = "<group>"; };
+		23958152213A986E009290FE /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		23958154213A987A009290FE /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		23958156213A9A30009290FE /* ViewController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UITableView.swift"; sourceTree = "<group>"; };
+		23958158213A9CD5009290FE /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		23A1888B211D601D00D9345A /* SelectedPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPlaceCell.swift; sourceTree = "<group>"; };
 		23A1888C211D601D00D9345A /* SelectedPlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedPlaceCell.xib; sourceTree = "<group>"; };
 		23A1888F211D61E100D9345A /* SelectedPlaceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPlaceHeaderView.swift; sourceTree = "<group>"; };
@@ -130,12 +140,15 @@
 		236FD183211BC5C000200825 /* TSP */ = {
 			isa = PBXGroup;
 			children = (
+				23958151213A9856009290FE /* Extentions */,
 				23B7CA4721218FA500D999AA /* RemoteServer */,
 				23B7CA44212160F900D999AA /* Source */,
 				23AEAFB1211ED2A7006727DA /* DirectionAlgorithm */,
 				23A18888211D5DA500D9345A /* UI */,
 				236FD184211BC5C000200825 /* AppDelegate.swift */,
 				236FD186211BC5C000200825 /* ViewController.swift */,
+				23958156213A9A30009290FE /* ViewController+UITableView.swift */,
+				2395814F213A97C0009290FE /* ViewController+GMS.swift */,
 				236FD188211BC5C000200825 /* Main.storyboard */,
 				236FD18B211BC5C100200825 /* Assets.xcassets */,
 				236FD18D211BC5C100200825 /* LaunchScreen.storyboard */,
@@ -160,6 +173,16 @@
 				236FD1A6211BC5C100200825 /* Info.plist */,
 			);
 			path = TSPUITests;
+			sourceTree = "<group>";
+		};
+		23958151213A9856009290FE /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				23958152213A986E009290FE /* UIColor+.swift */,
+				23958154213A987A009290FE /* UIViewController+.swift */,
+				23958158213A9CD5009290FE /* UIButton+.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 		23A18888211D5DA500D9345A /* UI */ = {
@@ -399,13 +422,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23958157213A9A30009290FE /* ViewController+UITableView.swift in Sources */,
 				23AEAFB7211ED366006727DA /* TSPGeneticAlgorithm.swift in Sources */,
 				23B7CA4121215F9900D999AA /* CustomMapMarker.swift in Sources */,
+				23958150213A97C0009290FE /* ViewController+GMS.swift in Sources */,
+				23958159213A9CD5009290FE /* UIButton+.swift in Sources */,
 				236FD187211BC5C000200825 /* ViewController.swift in Sources */,
 				23A1888D211D601D00D9345A /* SelectedPlaceCell.swift in Sources */,
+				23958153213A986E009290FE /* UIColor+.swift in Sources */,
 				23A18890211D61E100D9345A /* SelectedPlaceHeaderView.swift in Sources */,
 				236FD185211BC5C000200825 /* AppDelegate.swift in Sources */,
 				23A18896211D875800D9345A /* CurrentLoactionAddingView.swift in Sources */,
+				23958155213A987A009290FE /* UIViewController+.swift in Sources */,
 				23AEAFB3211ED323006727DA /* TSPPlace.swift in Sources */,
 				236B5C89211FF63400769D25 /* GoogleAPIKeys.swift in Sources */,
 				23AEAFB5211ED337006727DA /* TSPRoute.swift in Sources */,
