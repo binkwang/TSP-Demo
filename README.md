@@ -1,9 +1,8 @@
 # TSP-Demo
 
 ## Note
-> The purpose of this app is to take a list of destinations provided by the user and solve the classic Travelling Salesman Problem; that is, provide the shortest route which will go through all of the destinations.
+> The purpose of this app is to take a list of destinations provided by user and solve the classic Travelling Salesman Problem; that is, provide the shortest route which will go through all of the destinations.
 > 
-> Please have a revidew and provide feedback. 
 
 ## Services Dependency
 > Google directions web service to support the route directions. A DirectionAPIKey is required (has been setting in the project) , you can also replace the Key with yours.
@@ -26,14 +25,7 @@
 > Apple iOS version  11.4
 
 ## TODO
->  Function - Notification
->
-> Architecture improvement to make View Controller slim
->
-> Unit Test
->
-> Auto Layout
-
+>  
 
 ## Demo Videos 
 ### If the videos do not appear in your markdown reader, please find them under “demo-resources” folder
