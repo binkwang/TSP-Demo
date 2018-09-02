@@ -20,6 +20,8 @@
 		23958155213A987A009290FE /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23958154213A987A009290FE /* UIViewController+.swift */; };
 		23958157213A9A30009290FE /* ViewController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23958156213A9A30009290FE /* ViewController+UITableView.swift */; };
 		23958159213A9CD5009290FE /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23958158213A9CD5009290FE /* UIButton+.swift */; };
+		2395815B213B73BA009290FE /* ViewController+CurrentLoactionAddingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395815A213B73BA009290FE /* ViewController+CurrentLoactionAddingViewDelegate.swift */; };
+		2395815D213B7751009290FE /* ViewController+TSPDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395815C213B7751009290FE /* ViewController+TSPDelegate.swift */; };
 		23A1888D211D601D00D9345A /* SelectedPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A1888B211D601D00D9345A /* SelectedPlaceCell.swift */; };
 		23A1888E211D601D00D9345A /* SelectedPlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A1888C211D601D00D9345A /* SelectedPlaceCell.xib */; };
 		23A18890211D61E100D9345A /* SelectedPlaceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A1888F211D61E100D9345A /* SelectedPlaceHeaderView.swift */; };
@@ -73,6 +75,8 @@
 		23958154213A987A009290FE /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		23958156213A9A30009290FE /* ViewController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UITableView.swift"; sourceTree = "<group>"; };
 		23958158213A9CD5009290FE /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		2395815A213B73BA009290FE /* ViewController+CurrentLoactionAddingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CurrentLoactionAddingViewDelegate.swift"; sourceTree = "<group>"; };
+		2395815C213B7751009290FE /* ViewController+TSPDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+TSPDelegate.swift"; sourceTree = "<group>"; };
 		23A1888B211D601D00D9345A /* SelectedPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPlaceCell.swift; sourceTree = "<group>"; };
 		23A1888C211D601D00D9345A /* SelectedPlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedPlaceCell.xib; sourceTree = "<group>"; };
 		23A1888F211D61E100D9345A /* SelectedPlaceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPlaceHeaderView.swift; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 				236FD186211BC5C000200825 /* ViewController.swift */,
 				2395814F213A97C0009290FE /* ViewController+GMS.swift */,
 				23958156213A9A30009290FE /* ViewController+UITableView.swift */,
+				2395815C213B7751009290FE /* ViewController+TSPDelegate.swift */,
+				2395815A213B73BA009290FE /* ViewController+CurrentLoactionAddingViewDelegate.swift */,
 				236FD188211BC5C000200825 /* Main.storyboard */,
 				236FD18B211BC5C100200825 /* Assets.xcassets */,
 				236FD18D211BC5C100200825 /* LaunchScreen.storyboard */,
@@ -426,6 +432,8 @@
 				23AEAFB7211ED366006727DA /* TSPGeneticAlgorithm.swift in Sources */,
 				23B7CA4121215F9900D999AA /* CustomMapMarker.swift in Sources */,
 				23958150213A97C0009290FE /* ViewController+GMS.swift in Sources */,
+				2395815B213B73BA009290FE /* ViewController+CurrentLoactionAddingViewDelegate.swift in Sources */,
+				2395815D213B7751009290FE /* ViewController+TSPDelegate.swift in Sources */,
 				23958159213A9CD5009290FE /* UIButton+.swift in Sources */,
 				236FD187211BC5C000200825 /* ViewController.swift in Sources */,
 				23A1888D211D601D00D9345A /* SelectedPlaceCell.swift in Sources */,

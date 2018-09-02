@@ -9,10 +9,33 @@
 import Foundation
 import UIKit
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate
+extension ViewController: UITableViewDataSource
 {
-    // UITableViewDelegate
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return selectedPlaces.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cellIdentifier = "SelectedPlaceCellIdentifier"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SelectedPlaceCell else {
+            fatalError("The dequeued cell is not an instance of SelectedPlaceCell.")
+        }
+        
+        cell.indexLabel.text = "(\(indexPath.row+1))"
+        cell.place = selectedPlaces[indexPath.row]
+        
+        return cell
+    }
+}
+
+extension ViewController: UITableViewDelegate
+{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.section as Any)
         print(indexPath.row as Any)
@@ -42,29 +65,5 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate
             self.selectedPlaces.removeAll()
         }
         return headView
-    }
-    
-    // UITableViewDataSource
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return selectedPlaces.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cellIdentifier = "SelectedPlaceCellIdentifier"
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SelectedPlaceCell else {
-            fatalError("The dequeued cell is not an instance of SelectedPlaceCell.")
-        }
-        
-        cell.indexLabel.text = "(\(indexPath.row+1))"
-        cell.place = selectedPlaces[indexPath.row]
-        
-        return cell
     }
 }

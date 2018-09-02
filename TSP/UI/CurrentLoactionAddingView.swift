@@ -8,13 +8,15 @@
 
 import UIKit
 
-class CurrentLoactionAddingView: UIView {
+protocol CurrentLoactionAddingViewDelegate: class {
+    func cancelButtonTapped()
+    func confirmButtonTapped()
+}
 
+class CurrentLoactionAddingView: UIView {
     let nibName = "CurrentLoactionAddingView"
     
-    var cancelHandler: (() -> Void)?
-    var confirmHandler: (() -> Void)?
-    
+    weak var delegate: CurrentLoactionAddingViewDelegate?
     
     //MARK: - IBOutlets
     @IBOutlet weak var customView: UIView!
@@ -62,15 +64,10 @@ class CurrentLoactionAddingView: UIView {
     }
     
     @IBAction private func cancelButtonTapped() {
-        print("cancelButtonTapped")
-        guard let cancelHandler = self.cancelHandler else { return }
-        cancelHandler()
+        delegate?.cancelButtonTapped()
     }
     
     @IBAction private func confirmButtonTapped() {
-        print("confirmButtonTapped")
-        guard let confirmHandler = self.confirmHandler else { return }
-        confirmHandler()
+        delegate?.cancelButtonTapped()
     }
-    
 }

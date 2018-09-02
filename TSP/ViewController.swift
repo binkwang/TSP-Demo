@@ -74,50 +74,8 @@ class ViewController: UIViewController {
     }
     
     private func initCurrentLoactionAddingView() {
-        // Init CurrentLoactionAddingView
-        currentLoactionAddingView.frame = currentLoactionAddingViewFrameForStatus(status: 1)
-        currentLoactionAddingView.cancelHandler = { () in
-            self.dismissCurrentLoactionAddingView()
-        }
-        currentLoactionAddingView.confirmHandler = { () in
-            self.dismissCurrentLoactionAddingView()
-            
-            // Donot use the current GMS location, use the precision location(which adjust by user)
-            
-            if let address: GMSAddress = self.customMapMarker.address {
-                var formattedAddress: String?
-                let lines = address.lines! as [String] //componentsJoinedByString
-                
-                formattedAddress = lines.joined(separator: ", ")
-                let characterSet = CharacterSet(charactersIn: ", ")
-                formattedAddress = formattedAddress?.trimmingCharacters(in: characterSet)
-                
-                let tspPlace = TSPPlace(location: CGPoint.init(x: address.coordinate.latitude, y: address.coordinate.longitude), address: formattedAddress, coordinate: address.coordinate)
-                
-                if !self.isPlaceExistingInList(tspPlace) {
-                    self.selectedPlaces.append(tspPlace)
-                } else {
-                    self.showAlert("Prompt", "The place has been existing in the list.")
-                }
-            }
-            
-            /**************************************************** Current GMS location
-             let placesClient = GMSPlacesClient()
-             placesClient.currentPlace(callback: { (placeLikelihoods, error) -> Void in
-             if error != nil {
-             // TODO: Handle error in some way.
-             }
-             if let placeLikelihood = placeLikelihoods?.likelihoods.first {
-             let place = placeLikelihood.place
-             if !self.isPlaceExisting(place) {
-             self.selectedPlaces.append(place)
-             } else {
-             self.showAlert("Prompt", "The place has been existing in the list.")
-             }
-             }
-             })
-             ****************************************************/
-        }
+        currentLoactionAddingView.frame = currentLoactionAddingViewFrameForStatus(1)
+        currentLoactionAddingView.delegate = self
     }
     
     private func initSearchController() {
@@ -148,21 +106,9 @@ class ViewController: UIViewController {
         // When UISearchController presents the results view, present it in
         // this view controller, not one further up the chain.
         definesPresentationContext = true
-        
     }
     
-    private func dismissCurrentLoactionAddingView() {
-        self.customMapMarker.isHidden = true
-        UIView.animate(withDuration: 0.6, animations: { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.mapView.frame = strongSelf.mapViewFrameForStatus(status: 1)
-            strongSelf.tableView.frame = strongSelf.tableViewFrameForStatus(status: 1)
-            strongSelf.currentLoactionAddingView.frame = strongSelf.currentLoactionAddingViewFrameForStatus(status: 1)
-        }) { (isFinish) in
-        }
-    }
-    
-    private func mapViewFrameForStatus(status: NSInteger) -> CGRect {
+    private func mapViewFrameForStatus(_ status: NSInteger) -> CGRect {
         switch status {
         case 0:
             return CGRect.init(x: 0, y: 0, width: self.screenWidth, height: self.screenHeight-100)
@@ -171,7 +117,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private func tableViewFrameForStatus(status: NSInteger) -> CGRect {
+    private func tableViewFrameForStatus(_ status: NSInteger) -> CGRect {
         switch status {
         case 0:
             return CGRect.init(x: 0, y: self.screenHeight, width: self.screenWidth, height: self.screenHeight/2)
@@ -180,27 +126,12 @@ class ViewController: UIViewController {
         }
     }
     
-    private func currentLoactionAddingViewFrameForStatus(status: NSInteger) -> CGRect {
+    private func currentLoactionAddingViewFrameForStatus(_ status: NSInteger) -> CGRect {
         switch status {
         case 0:
             return CGRect.init(x: 0, y: self.screenHeight-100, width: self.screenWidth, height: 100)
         default:
             return CGRect.init(x: 0, y: self.screenHeight, width: self.screenWidth, height: 100)
-        }
-    }
-    
-    func showCurrentLoactionAddingView() {
-        UIView.animate(withDuration: 0.6, animations: { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.mapView.frame = strongSelf.mapViewFrameForStatus(status: 0)
-            strongSelf.tableView.frame = strongSelf.tableViewFrameForStatus(status: 0)
-            strongSelf.currentLoactionAddingView.frame = strongSelf.currentLoactionAddingViewFrameForStatus(status: 0)
-            strongSelf.customMapMarker.center = CGPoint.init(x: strongSelf.mapView.center.x, y: strongSelf.mapView.center.y-strongSelf.customMapMarker.frame.height/2)
-        }) { [weak self] (isFinish) in
-            guard let strongSelf = self else { return }
-            if isFinish {
-                strongSelf.customMapMarker.isHidden = false
-            }
         }
     }
     
@@ -215,112 +146,29 @@ class ViewController: UIViewController {
         return isExisting
     }
     
-    func showAlert(_ title: String, _ message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            switch action.style {
-            case .default:
-                print("default")
-            case .cancel:
-                print("cancel")
-            case .destructive:
-                print("destructive")
-            }}))
-        self.present(alert, animated: true, completion: nil)
-    }
-}
-
-// MARK: TSPDelegate
-
-protocol TSPDelegate {
-    func findOptimizedOrder(_ places: [TSPPlace])
-}
-
-extension ViewController: TSPDelegate
-{
-    func findOptimizedOrder(_ places: [TSPPlace]) {
-        guard places.count >= 2 else {
-            self.showAlert("Error", "You need at least 2 destinations in the list, please add your current location or by searching locations")
-            return
+    func dismissCurrentLoactionAddingView() {
+        self.customMapMarker.isHidden = true
+        UIView.animate(withDuration: 0.6, animations: { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.mapView.frame = strongSelf.mapViewFrameForStatus(1)
+            strongSelf.tableView.frame = strongSelf.tableViewFrameForStatus(1)
+            strongSelf.currentLoactionAddingView.frame = strongSelf.currentLoactionAddingViewFrameForStatus(1)
+        }) { (isFinish) in
         }
-        let spinner = UIViewController.displaySpinner(onView: self.view)
-        let geneticAlgorithm: GeneticAlgorithm? = GeneticAlgorithm(withCities: places)
-        geneticAlgorithm?.onNewGeneration = {
-            (route, generation) in
-            DispatchQueue.main.async {
-                //print(route.cities)
-                UIViewController.removeSpinner(spinner: spinner)
-                self.drawRouteOnMap(route.cities)
-            }
-        }
-        geneticAlgorithm?.startEvolution()
     }
     
-    private func addMarker(_ latitude: Double, _ longitude: Double) {
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        marker.title = ""
-        marker.snippet = ""
-        marker.map = self.mapView
-    }
-    
-    private func drawRouteOnMap(_ places: [TSPPlace]) {
-        self.mapView.clear()
-        
-        for i in 0..<places.count {
-            
-            let originLatitude = places[i].location.x
-            let originLongitude = places[i].location.y
-            
-            addMarker(Double(originLatitude), Double(originLongitude))
-            
-            var destinationLatitude: CGFloat?
-            var destinationLongitude: CGFloat?
-            
-            if i == places.count-1 {
-                destinationLatitude = places[0].location.x
-                destinationLongitude = places[0].location.y
+    func showCurrentLoactionAddingView() {
+        UIView.animate(withDuration: 0.6, animations: { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.mapView.frame = strongSelf.mapViewFrameForStatus(0)
+            strongSelf.tableView.frame = strongSelf.tableViewFrameForStatus(0)
+            strongSelf.currentLoactionAddingView.frame = strongSelf.currentLoactionAddingViewFrameForStatus(0)
+            strongSelf.customMapMarker.center = CGPoint.init(x: strongSelf.mapView.center.x, y: strongSelf.mapView.center.y-strongSelf.customMapMarker.frame.height/2)
+        }) { [weak self] (isFinish) in
+            guard let strongSelf = self else { return }
+            if isFinish {
+                strongSelf.customMapMarker.isHidden = false
             }
-            else {
-                destinationLatitude = places[i+1].location.x
-                destinationLongitude = places[i+1].location.y
-            }
-            
-            let url = NSURL(string: "\("https://maps.googleapis.com/maps/api/directions/json")?origin=\(originLatitude),\(originLongitude)&destination=\(destinationLatitude!),\(destinationLongitude!)&sensor=true&key=\(kDirectionAPIKeyWithIPLimit)")
-            
-            let task = URLSession.shared.dataTask(with: url! as URL) { [weak self] (data, response, error) -> Void in
-                guard let strongSelf = self else { return }
-                do {
-                    guard let data = data else { return }
-                    
-                    let responseDic = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableLeaves) as!  [String:AnyObject]
-                    
-                    guard let status = responseDic["status"] else { return }
-                    
-                    if status as! String == "OK" {
-                        let routesArray = (((responseDic["routes"]!as! [Any])[0] as! [String:Any])["overview_polyline"] as! [String:Any])["points"] as! String
-                        
-                        DispatchQueue.main.async {
-                            let path = GMSPath.init(fromEncodedPath: routesArray)
-                            let singleLine = GMSPolyline.init(path: path)
-                            singleLine.strokeWidth = 4.0
-                            singleLine.strokeColor = UIColor.random
-                            singleLine.map = strongSelf.mapView
-                        }
-                    } else {
-                        guard let error_message = responseDic["error_message"] else {
-                            strongSelf.showAlert("ERROR", "No detailed error message")
-                            return
-                        }
-                        strongSelf.showAlert("ERROR", error_message as! String)
-                    }
-                    
-                } catch {
-                    print("Error")
-                }
-            }
-            
-            task.resume()
         }
     }
 }
