@@ -148,26 +148,23 @@ class ViewController: UIViewController {
     
     func dismissCurrentLoactionAddingView() {
         self.customMapMarker.isHidden = true
-        UIView.animate(withDuration: 0.6, animations: { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.mapView.frame = strongSelf.mapViewFrameForStatus(1)
-            strongSelf.tableView.frame = strongSelf.tableViewFrameForStatus(1)
-            strongSelf.currentLoactionAddingView.frame = strongSelf.currentLoactionAddingViewFrameForStatus(1)
+        UIView.animate(withDuration: 0.6, animations: {
+            self.mapView.frame = self.mapViewFrameForStatus(1)
+            self.tableView.frame = self.tableViewFrameForStatus(1)
+            self.currentLoactionAddingView.frame = self.currentLoactionAddingViewFrameForStatus(1)
         }) { (isFinish) in
         }
     }
     
     func showCurrentLoactionAddingView() {
-        UIView.animate(withDuration: 0.6, animations: { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.mapView.frame = strongSelf.mapViewFrameForStatus(0)
-            strongSelf.tableView.frame = strongSelf.tableViewFrameForStatus(0)
-            strongSelf.currentLoactionAddingView.frame = strongSelf.currentLoactionAddingViewFrameForStatus(0)
-            strongSelf.customMapMarker.center = CGPoint.init(x: strongSelf.mapView.center.x, y: strongSelf.mapView.center.y-strongSelf.customMapMarker.frame.height/2)
-        }) { [weak self] (isFinish) in
-            guard let strongSelf = self else { return }
+        UIView.animate(withDuration: 0.6, animations: {
+            self.mapView.frame = self.mapViewFrameForStatus(0)
+            self.tableView.frame = self.tableViewFrameForStatus(0)
+            self.currentLoactionAddingView.frame = self.currentLoactionAddingViewFrameForStatus(0)
+            self.customMapMarker.center = CGPoint.init(x: self.mapView.center.x, y: self.mapView.center.y-self.customMapMarker.frame.height/2)
+        }) { (isFinish) in
             if isFinish {
-                strongSelf.customMapMarker.isHidden = false
+                self.customMapMarker.isHidden = false
             }
         }
     }

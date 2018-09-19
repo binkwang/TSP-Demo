@@ -67,7 +67,7 @@ extension ViewController: TSPDelegate
             let url = NSURL(string: "\("https://maps.googleapis.com/maps/api/directions/json")?origin=\(originLatitude),\(originLongitude)&destination=\(destinationLatitude!),\(destinationLongitude!)&sensor=true&key=\(kDirectionAPIKeyWithIPLimit)")
             
             let task = URLSession.shared.dataTask(with: url! as URL) { [weak self] (data, response, error) -> Void in
-                guard let strongSelf = self else { return }
+                guard let weakSelf = self else { return }
                 do {
                     guard let data = data else { return }
                     
@@ -83,14 +83,14 @@ extension ViewController: TSPDelegate
                             let singleLine = GMSPolyline.init(path: path)
                             singleLine.strokeWidth = 4.0
                             singleLine.strokeColor = UIColor.random
-                            singleLine.map = strongSelf.mapView
+                            singleLine.map = weakSelf.mapView
                         }
                     } else {
                         guard let error_message = responseDic["error_message"] else {
-                            strongSelf.showAlert("ERROR", "No detailed error message")
+                            weakSelf.showAlert("ERROR", "No detailed error message")
                             return
                         }
-                        strongSelf.showAlert("ERROR", error_message as! String)
+                        weakSelf.showAlert("ERROR", error_message as! String)
                     }
                     
                 } catch {
