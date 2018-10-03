@@ -53,7 +53,7 @@ extension ViewController: GMSMapViewDelegate
     func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
         print("myLocation: \(String(describing: mapView.myLocation))")
         self.mapView.clear()
-        self.showCurrentLoactionAddingView()
+        self.layoutUIWithMode(.showCurrentLoaction)
         return false
     }
     

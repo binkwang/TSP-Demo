@@ -1,5 +1,5 @@
 //
-//  ViewController+CurrentLoactionAddingViewDelegate.swift
+//  ViewController+SelectCurrentLoactionDelegate.swift
 //  TSP
 //
 //  Created by Bink Wang on 9/2/18.
@@ -10,14 +10,14 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
-extension ViewController: CurrentLoactionAddingViewDelegate
+extension ViewController: SelectCurrentLoactionDelegate
 {
     func cancelButtonTapped() {
-        self.dismissCurrentLoactionAddingView()
+        self.layoutUIWithMode(.defaultMode)
     }
     
     func confirmButtonTapped() {
-        self.dismissCurrentLoactionAddingView()
+        self.layoutUIWithMode(.defaultMode)
         
         // Donot use the current GMS location, use the precision location(which adjust by user)
         
@@ -55,6 +55,4 @@ extension ViewController: CurrentLoactionAddingViewDelegate
          })
          ****************************************************/
     }
-    
-
 }

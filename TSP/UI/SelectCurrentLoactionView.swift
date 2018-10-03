@@ -1,5 +1,5 @@
 //
-//  CurrentLoactionAddingView.swift
+//  SelectCurrentLoactionView.swift
 //  TSP
 //
 //  Created by Bink Wang on 8/10/18.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-protocol CurrentLoactionAddingViewDelegate: class {
+protocol SelectCurrentLoactionDelegate: class {
     func cancelButtonTapped()
     func confirmButtonTapped()
 }
 
-class CurrentLoactionAddingView: UIView {
-    let nibName = "CurrentLoactionAddingView"
+class SelectCurrentLoactionView: UIView {
+    let nibName = "SelectCurrentLoactionView"
     
-    weak var delegate: CurrentLoactionAddingViewDelegate?
+    weak var delegate: SelectCurrentLoactionDelegate?
     
     //MARK: - IBOutlets
     @IBOutlet weak var customView: UIView!
@@ -45,15 +45,8 @@ class CurrentLoactionAddingView: UIView {
         customView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         addSubview(customView)
         
-        cancelButton.layer.masksToBounds = true
-        cancelButton.layer.cornerRadius = 10
-        cancelButton.setBackgroundColor(UIColor.lightGray, for: .normal)
-        cancelButton.setBackgroundColor(UIColor.gray, for: .highlighted)
-        
-        confirmButton.layer.masksToBounds = true
-        confirmButton.layer.cornerRadius = 10
-        confirmButton.setBackgroundColor(UIColor.lightGray, for: .normal)
-        confirmButton.setBackgroundColor(UIColor.gray, for: .highlighted)
+        cancelButton.styleButton()
+        confirmButton.styleButton()
     }
     
     func configureNib() -> UIView {
@@ -68,6 +61,6 @@ class CurrentLoactionAddingView: UIView {
     }
     
     @IBAction private func confirmButtonTapped() {
-        delegate?.cancelButtonTapped()
+        delegate?.confirmButtonTapped()
     }
 }

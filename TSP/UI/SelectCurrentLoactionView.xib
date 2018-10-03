@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CurrentLoactionAddingView" customModule="TSP" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectCurrentLoactionView" customModule="TSP" customModuleProvider="target">
             <connections>
                 <outlet property="cancelButton" destination="Oxp-7z-62H" id="ujQ-bF-mmF"/>
                 <outlet property="confirmButton" destination="ZrC-x2-O9U" id="qUg-KD-cWP"/>
@@ -24,7 +24,7 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oxp-7z-62H">
                     <rect key="frame" x="40" y="32" width="140" height="36"/>
-                    <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="140" id="Wyr-Yg-kFF"/>
                     </constraints>
@@ -32,6 +32,7 @@
                         <attributedString key="attributedTitle">
                             <fragment content="CANCEL">
                                 <attributes>
+                                    <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <font key="NSFont" size="14" name=".SFNSText"/>
                                 </attributes>
                             </fragment>
@@ -43,7 +44,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZrC-x2-O9U">
                     <rect key="frame" x="195" y="32" width="140" height="36"/>
-                    <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="140" id="JEF-2X-wQi"/>
                     </constraints>
@@ -51,6 +52,7 @@
                         <attributedString key="attributedTitle">
                             <fragment content="CONFIRM">
                                 <attributes>
+                                    <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <font key="NSFont" size="14" name=".SFNSText"/>
                                 </attributes>
                             </fragment>

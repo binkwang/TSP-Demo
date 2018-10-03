@@ -20,14 +20,14 @@
 		23958155213A987A009290FE /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23958154213A987A009290FE /* UIViewController+.swift */; };
 		23958157213A9A30009290FE /* ViewController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23958156213A9A30009290FE /* ViewController+UITableView.swift */; };
 		23958159213A9CD5009290FE /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23958158213A9CD5009290FE /* UIButton+.swift */; };
-		2395815B213B73BA009290FE /* ViewController+CurrentLoactionAddingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395815A213B73BA009290FE /* ViewController+CurrentLoactionAddingViewDelegate.swift */; };
+		2395815B213B73BA009290FE /* ViewController+SelectCurrentLoactionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395815A213B73BA009290FE /* ViewController+SelectCurrentLoactionDelegate.swift */; };
 		2395815D213B7751009290FE /* ViewController+TSPDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395815C213B7751009290FE /* ViewController+TSPDelegate.swift */; };
 		23A1888D211D601D00D9345A /* SelectedPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A1888B211D601D00D9345A /* SelectedPlaceCell.swift */; };
 		23A1888E211D601D00D9345A /* SelectedPlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A1888C211D601D00D9345A /* SelectedPlaceCell.xib */; };
 		23A18890211D61E100D9345A /* SelectedPlaceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A1888F211D61E100D9345A /* SelectedPlaceHeaderView.swift */; };
 		23A18892211D77D400D9345A /* SelectedPlaceHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A18891211D77D400D9345A /* SelectedPlaceHeaderView.xib */; };
-		23A18894211D874200D9345A /* CurrentLoactionAddingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A18893211D874200D9345A /* CurrentLoactionAddingView.xib */; };
-		23A18896211D875800D9345A /* CurrentLoactionAddingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A18895211D875800D9345A /* CurrentLoactionAddingView.swift */; };
+		23A18894211D874200D9345A /* SelectCurrentLoactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A18893211D874200D9345A /* SelectCurrentLoactionView.xib */; };
+		23A18896211D875800D9345A /* SelectCurrentLoactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A18895211D875800D9345A /* SelectCurrentLoactionView.swift */; };
 		23AEAFB3211ED323006727DA /* TSPPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AEAFB2211ED323006727DA /* TSPPlace.swift */; };
 		23AEAFB5211ED337006727DA /* TSPRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AEAFB4211ED337006727DA /* TSPRoute.swift */; };
 		23AEAFB7211ED366006727DA /* TSPGeneticAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AEAFB6211ED366006727DA /* TSPGeneticAlgorithm.swift */; };
@@ -74,14 +74,14 @@
 		23958154213A987A009290FE /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		23958156213A9A30009290FE /* ViewController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UITableView.swift"; sourceTree = "<group>"; };
 		23958158213A9CD5009290FE /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
-		2395815A213B73BA009290FE /* ViewController+CurrentLoactionAddingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CurrentLoactionAddingViewDelegate.swift"; sourceTree = "<group>"; };
+		2395815A213B73BA009290FE /* ViewController+SelectCurrentLoactionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+SelectCurrentLoactionDelegate.swift"; sourceTree = "<group>"; };
 		2395815C213B7751009290FE /* ViewController+TSPDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+TSPDelegate.swift"; sourceTree = "<group>"; };
 		23A1888B211D601D00D9345A /* SelectedPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPlaceCell.swift; sourceTree = "<group>"; };
 		23A1888C211D601D00D9345A /* SelectedPlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedPlaceCell.xib; sourceTree = "<group>"; };
 		23A1888F211D61E100D9345A /* SelectedPlaceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPlaceHeaderView.swift; sourceTree = "<group>"; };
 		23A18891211D77D400D9345A /* SelectedPlaceHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedPlaceHeaderView.xib; sourceTree = "<group>"; };
-		23A18893211D874200D9345A /* CurrentLoactionAddingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentLoactionAddingView.xib; sourceTree = "<group>"; };
-		23A18895211D875800D9345A /* CurrentLoactionAddingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLoactionAddingView.swift; sourceTree = "<group>"; };
+		23A18893211D874200D9345A /* SelectCurrentLoactionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectCurrentLoactionView.xib; sourceTree = "<group>"; };
+		23A18895211D875800D9345A /* SelectCurrentLoactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCurrentLoactionView.swift; sourceTree = "<group>"; };
 		23AEAFB2211ED323006727DA /* TSPPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSPPlace.swift; sourceTree = "<group>"; };
 		23AEAFB4211ED337006727DA /* TSPRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSPRoute.swift; sourceTree = "<group>"; };
 		23AEAFB6211ED366006727DA /* TSPGeneticAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSPGeneticAlgorithm.swift; sourceTree = "<group>"; };
@@ -149,9 +149,9 @@
 				236FD184211BC5C000200825 /* AppDelegate.swift */,
 				236FD186211BC5C000200825 /* ViewController.swift */,
 				2395814F213A97C0009290FE /* ViewController+GMS.swift */,
-				23958156213A9A30009290FE /* ViewController+UITableView.swift */,
 				2395815C213B7751009290FE /* ViewController+TSPDelegate.swift */,
-				2395815A213B73BA009290FE /* ViewController+CurrentLoactionAddingViewDelegate.swift */,
+				23958156213A9A30009290FE /* ViewController+UITableView.swift */,
+				2395815A213B73BA009290FE /* ViewController+SelectCurrentLoactionDelegate.swift */,
 				236FD188211BC5C000200825 /* Main.storyboard */,
 				236FD18B211BC5C100200825 /* Assets.xcassets */,
 				236FD18D211BC5C100200825 /* LaunchScreen.storyboard */,
@@ -195,8 +195,8 @@
 				23A1888C211D601D00D9345A /* SelectedPlaceCell.xib */,
 				23A1888F211D61E100D9345A /* SelectedPlaceHeaderView.swift */,
 				23A18891211D77D400D9345A /* SelectedPlaceHeaderView.xib */,
-				23A18895211D875800D9345A /* CurrentLoactionAddingView.swift */,
-				23A18893211D874200D9345A /* CurrentLoactionAddingView.xib */,
+				23A18895211D875800D9345A /* SelectCurrentLoactionView.swift */,
+				23A18893211D874200D9345A /* SelectCurrentLoactionView.xib */,
 				23B7CA4021215F9900D999AA /* CustomMapMarker.swift */,
 				23B7CA4221215FA700D999AA /* CustomMapMarker.xib */,
 			);
@@ -348,7 +348,7 @@
 				23A18892211D77D400D9345A /* SelectedPlaceHeaderView.xib in Resources */,
 				236FD18F211BC5C100200825 /* LaunchScreen.storyboard in Resources */,
 				236FD18C211BC5C100200825 /* Assets.xcassets in Resources */,
-				23A18894211D874200D9345A /* CurrentLoactionAddingView.xib in Resources */,
+				23A18894211D874200D9345A /* SelectCurrentLoactionView.xib in Resources */,
 				23B7CA4321215FA700D999AA /* CustomMapMarker.xib in Resources */,
 				236FD18A211BC5C000200825 /* Main.storyboard in Resources */,
 			);
@@ -420,7 +420,7 @@
 				23AEAFB7211ED366006727DA /* TSPGeneticAlgorithm.swift in Sources */,
 				23B7CA4121215F9900D999AA /* CustomMapMarker.swift in Sources */,
 				23958150213A97C0009290FE /* ViewController+GMS.swift in Sources */,
-				2395815B213B73BA009290FE /* ViewController+CurrentLoactionAddingViewDelegate.swift in Sources */,
+				2395815B213B73BA009290FE /* ViewController+SelectCurrentLoactionDelegate.swift in Sources */,
 				2395815D213B7751009290FE /* ViewController+TSPDelegate.swift in Sources */,
 				23958159213A9CD5009290FE /* UIButton+.swift in Sources */,
 				236FD187211BC5C000200825 /* ViewController.swift in Sources */,
@@ -428,7 +428,7 @@
 				23958153213A986E009290FE /* UIColor+.swift in Sources */,
 				23A18890211D61E100D9345A /* SelectedPlaceHeaderView.swift in Sources */,
 				236FD185211BC5C000200825 /* AppDelegate.swift in Sources */,
-				23A18896211D875800D9345A /* CurrentLoactionAddingView.swift in Sources */,
+				23A18896211D875800D9345A /* SelectCurrentLoactionView.swift in Sources */,
 				23958155213A987A009290FE /* UIViewController+.swift in Sources */,
 				23AEAFB3211ED323006727DA /* TSPPlace.swift in Sources */,
 				236B5C89211FF63400769D25 /* GoogleAPIKeys.swift in Sources */,

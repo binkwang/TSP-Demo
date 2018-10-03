@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var currentLoactionAddingView: CurrentLoactionAddingView!
+    @IBOutlet weak var selectCurrentLoactionView: SelectCurrentLoactionView!
     
     var customMapMarker: CustomMapMarker!
     
@@ -34,8 +34,10 @@ class ViewController: UIViewController {
         
         self.initGMSMapView()
         self.initTableView()
-        self.initCurrentLoactionAddingView()
+        self.initCurrentLoactionView()
         self.initSearchController() // Init UISearchController with GMSAutocompleteResultsViewController
+        
+        self.layoutUIWithMode(.defaultMode)
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -73,9 +75,8 @@ class ViewController: UIViewController {
         customMapMarker.isHidden = true
     }
     
-    private func initCurrentLoactionAddingView() {
-        currentLoactionAddingView.frame = currentLoactionAddingViewFrameForStatus(1)
-        currentLoactionAddingView.delegate = self
+    private func initCurrentLoactionView() {
+        selectCurrentLoactionView.delegate = self
     }
     
     private func initSearchController() {
@@ -108,33 +109,6 @@ class ViewController: UIViewController {
         definesPresentationContext = true
     }
     
-    private func mapViewFrameForStatus(_ status: NSInteger) -> CGRect {
-        switch status {
-        case 0:
-            return CGRect.init(x: 0, y: 0, width: self.screenWidth, height: self.screenHeight-100)
-        default:
-            return CGRect.init(x: 0, y: 0, width: self.screenWidth, height: self.screenHeight/2)
-        }
-    }
-    
-    private func tableViewFrameForStatus(_ status: NSInteger) -> CGRect {
-        switch status {
-        case 0:
-            return CGRect.init(x: 0, y: self.screenHeight, width: self.screenWidth, height: self.screenHeight/2)
-        default:
-            return CGRect.init(x: 0, y: self.screenHeight/2, width: self.screenWidth, height: self.screenHeight/2)
-        }
-    }
-    
-    private func currentLoactionAddingViewFrameForStatus(_ status: NSInteger) -> CGRect {
-        switch status {
-        case 0:
-            return CGRect.init(x: 0, y: self.screenHeight-100, width: self.screenWidth, height: 100)
-        default:
-            return CGRect.init(x: 0, y: self.screenHeight, width: self.screenWidth, height: 100)
-        }
-    }
-    
     func isPlaceExistingInList(_ place: TSPPlace) -> Bool {
         var isExisting: Bool = false
         selectedPlaces.forEach { (selectedPlace) in
@@ -145,27 +119,54 @@ class ViewController: UIViewController {
         }
         return isExisting
     }
+}
+
+extension ViewController {
     
-    func dismissCurrentLoactionAddingView() {
-        self.customMapMarker.isHidden = true
-        UIView.animate(withDuration: 0.6, animations: {
-            self.mapView.frame = self.mapViewFrameForStatus(1)
-            self.tableView.frame = self.tableViewFrameForStatus(1)
-            self.currentLoactionAddingView.frame = self.currentLoactionAddingViewFrameForStatus(1)
-        }) { (isFinish) in
-        }
+    enum ViewLayoutMode: NSInteger {
+        case showCurrentLoaction = 0, defaultMode
     }
     
-    func showCurrentLoactionAddingView() {
+    func layoutUIWithMode(_ mode: ViewLayoutMode) {
         UIView.animate(withDuration: 0.6, animations: {
-            self.mapView.frame = self.mapViewFrameForStatus(0)
-            self.tableView.frame = self.tableViewFrameForStatus(0)
-            self.currentLoactionAddingView.frame = self.currentLoactionAddingViewFrameForStatus(0)
-            self.customMapMarker.center = CGPoint.init(x: self.mapView.center.x, y: self.mapView.center.y-self.customMapMarker.frame.height/2)
+            self.mapView.frame = self.mapViewFrameForStatus(mode)
+            self.tableView.frame = self.tableViewFrameForStatus(mode)
+            self.selectCurrentLoactionView.frame = self.currentLoactionViewFrameForStatus(mode)
+            if mode == .showCurrentLoaction {
+                self.customMapMarker.center = CGPoint.init(x: self.mapView.center.x, y: self.mapView.center.y-self.customMapMarker.frame.height/2)
+            }
         }) { (isFinish) in
-            if isFinish {
+            if isFinish && mode == .showCurrentLoaction{
                 self.customMapMarker.isHidden = false
             }
         }
     }
+    
+    private func mapViewFrameForStatus(_ status: ViewLayoutMode) -> CGRect {
+        switch status {
+        case .showCurrentLoaction:
+            return CGRect.init(x: 0, y: 0, width: self.screenWidth, height: self.screenHeight-100)
+        default:
+            return CGRect.init(x: 0, y: 0, width: self.screenWidth, height: self.screenHeight/2)
+        }
+    }
+    
+    private func tableViewFrameForStatus(_ status: ViewLayoutMode) -> CGRect {
+        switch status {
+        case .showCurrentLoaction:
+            return CGRect.init(x: 0, y: self.screenHeight, width: self.screenWidth, height: self.screenHeight/2)
+        default:
+            return CGRect.init(x: 0, y: self.screenHeight/2, width: self.screenWidth, height: self.screenHeight/2)
+        }
+    }
+    
+    private func currentLoactionViewFrameForStatus(_ status: ViewLayoutMode) -> CGRect {
+        switch status {
+        case .showCurrentLoaction:
+            return CGRect.init(x: 0, y: self.screenHeight-100, width: self.screenWidth, height: 100)
+        default:
+            return CGRect.init(x: 0, y: self.screenHeight, width: self.screenWidth, height: 100)
+        }
+    }
 }
+

@@ -44,15 +44,8 @@ class SelectedPlaceHeaderView: UIView {
         
         self.viewAutoLayout()
         
-        directionsButton.layer.masksToBounds = true
-        directionsButton.layer.cornerRadius = 5
-        directionsButton.setBackgroundColor(UIColor.blue, for: .normal)
-        directionsButton.setBackgroundColor(UIColor.lightGray, for: .highlighted) //highlighted/normal/disabled/selected
-        
-        clearAllButton.layer.masksToBounds = true
-        clearAllButton.layer.cornerRadius = 5
-        clearAllButton.setBackgroundColor(UIColor.blue, for: .normal)
-        clearAllButton.setBackgroundColor(UIColor.lightGray, for: .highlighted) //highlighted/normal/disabled/selected
+        clearAllButton.styleButton()
+        directionsButton.styleButton()
     }
     
     func configureNib() -> UIView {

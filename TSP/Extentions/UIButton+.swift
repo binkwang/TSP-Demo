@@ -9,6 +9,17 @@
 import UIKit
 
 extension UIButton {
+    func styleButton() {
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 5
+        self.setBackgroundColor(UIColor.blue, for: .normal)
+        self.setBackgroundColor(UIColor.lightGray, for: .highlighted)
+    }
+    
+    private func setBackgroundColor(_ color: UIColor, for state: UIControlState) {
+        self.setBackgroundImage(image(withColor: color), for: state)
+    }
+    
     private func image(withColor color: UIColor) -> UIImage? {
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
         UIGraphicsBeginImageContext(rect.size)
@@ -21,9 +32,5 @@ extension UIButton {
         UIGraphicsEndImageContext()
         
         return image
-    }
-    
-    func setBackgroundColor(_ color: UIColor, for state: UIControlState) {
-        self.setBackgroundImage(image(withColor: color), for: state)
     }
 }
