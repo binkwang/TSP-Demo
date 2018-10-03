@@ -33,7 +33,6 @@
 		23AEAFB7211ED366006727DA /* TSPGeneticAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AEAFB6211ED366006727DA /* TSPGeneticAlgorithm.swift */; };
 		23B7CA4121215F9900D999AA /* CustomMapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B7CA4021215F9900D999AA /* CustomMapMarker.swift */; };
 		23B7CA4321215FA700D999AA /* CustomMapMarker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23B7CA4221215FA700D999AA /* CustomMapMarker.xib */; };
-		23B7CA462121611E00D999AA /* marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 23B7CA452121611E00D999AA /* marker.png */; };
 		3175D2954BB712A92EF37A63 /* libPods-TSP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E18A622DEC006509484C4C /* libPods-TSP.a */; };
 /* End PBXBuildFile section */
 
@@ -88,7 +87,6 @@
 		23AEAFB6211ED366006727DA /* TSPGeneticAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSPGeneticAlgorithm.swift; sourceTree = "<group>"; };
 		23B7CA4021215F9900D999AA /* CustomMapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapMarker.swift; sourceTree = "<group>"; };
 		23B7CA4221215FA700D999AA /* CustomMapMarker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMapMarker.xib; sourceTree = "<group>"; };
-		23B7CA452121611E00D999AA /* marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker.png; sourceTree = "<group>"; };
 		23E18A622DEC006509484C4C /* libPods-TSP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7FB97D2A059C927BE55049E /* Pods-TSP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSP.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSP/Pods-TSP.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,7 +144,6 @@
 			children = (
 				23958151213A9856009290FE /* Extentions */,
 				23B7CA4721218FA500D999AA /* RemoteServer */,
-				23B7CA44212160F900D999AA /* Source */,
 				23AEAFB1211ED2A7006727DA /* DirectionAlgorithm */,
 				23A18888211D5DA500D9345A /* UI */,
 				236FD184211BC5C000200825 /* AppDelegate.swift */,
@@ -214,14 +211,6 @@
 				23AEAFB6211ED366006727DA /* TSPGeneticAlgorithm.swift */,
 			);
 			path = DirectionAlgorithm;
-			sourceTree = "<group>";
-		};
-		23B7CA44212160F900D999AA /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				23B7CA452121611E00D999AA /* marker.png */,
-			);
-			path = Source;
 			sourceTree = "<group>";
 		};
 		23B7CA4721218FA500D999AA /* RemoteServer */ = {
@@ -362,7 +351,6 @@
 				23A18894211D874200D9345A /* CurrentLoactionAddingView.xib in Resources */,
 				23B7CA4321215FA700D999AA /* CustomMapMarker.xib in Resources */,
 				236FD18A211BC5C000200825 /* Main.storyboard in Resources */,
-				23B7CA462121611E00D999AA /* marker.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
