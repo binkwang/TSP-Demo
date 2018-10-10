@@ -23,6 +23,14 @@ class SelectCurrentLoactionView: UIView {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
     
+    @IBAction private func cancelButtonTapped() {
+        delegate?.cancelButtonTapped()
+    }
+    
+    @IBAction private func confirmButtonTapped() {
+        delegate?.confirmButtonTapped()
+    }
+    
     //MARK: - UIView Overided methods
     override func draw(_ rect: CGRect) {
         // Drawing code
@@ -54,13 +62,5 @@ class SelectCurrentLoactionView: UIView {
         let nib = UINib(nibName: nibName, bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         return view
-    }
-    
-    @IBAction private func cancelButtonTapped() {
-        delegate?.cancelButtonTapped()
-    }
-    
-    @IBAction private func confirmButtonTapped() {
-        delegate?.confirmButtonTapped()
     }
 }
